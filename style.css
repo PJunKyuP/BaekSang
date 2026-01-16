@@ -1020,23 +1020,62 @@ body {
 .modal-related-title {
     font-size: 1.25rem;
     margin-bottom: 2rem;
+    position: relative;
+}
+
+.modal-related-title::after {
+    content: '← Swipe →';
+    display: inline-block;
+    margin-left: 1rem;
+    font-size: 0.75rem;
+    color: var(--color-neutral-400);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+    .modal-related-title::after {
+        display: none;
+    }
 }
 
 .modal-related-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 1rem;
+}
+
+.modal-related-grid::-webkit-scrollbar {
+    display: none;
 }
 
 @media (min-width: 768px) {
     .modal-related-grid {
+        display: grid;
         grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        overflow-x: visible;
+        scroll-snap-type: none;
     }
 }
 
 .modal-related-item {
     cursor: pointer;
     position: relative;
+    flex: 0 0 75%;
+    scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+    .modal-related-item {
+        flex: initial;
+    }
 }
 
 .modal-related-image-wrapper {
