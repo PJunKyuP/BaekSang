@@ -957,12 +957,18 @@ body {
     width: 100%;
     height: auto;
     object-fit: cover;
-    filter: grayscale(100%);
+    filter: grayscale(0%);
     transition: filter 0.7s;
 }
 
-.modal-gallery-grid img:hover {
-    filter: grayscale(0%);
+@media (min-width: 768px) {
+    .modal-gallery-grid img {
+        filter: grayscale(100%);
+    }
+    
+    .modal-gallery-grid img:hover {
+        filter: grayscale(0%);
+    }
 }
 
 .modal-meta-column {
@@ -1045,12 +1051,18 @@ body {
     height: 100%;
     object-fit: cover;
     transition: all 0.7s;
-    filter: grayscale(100%);
+    filter: grayscale(0%);
 }
 
-.modal-related-item:hover .modal-related-image-wrapper img {
-    transform: scale(1.05);
-    filter: grayscale(0%);
+@media (min-width: 768px) {
+    .modal-related-image-wrapper img {
+        filter: grayscale(100%);
+    }
+    
+    .modal-related-item:hover .modal-related-image-wrapper img {
+        transform: scale(1.05);
+        filter: grayscale(0%);
+    }
 }
 
 .modal-related-image-overlay {
